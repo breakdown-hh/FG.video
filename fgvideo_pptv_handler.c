@@ -27,7 +27,7 @@ pptv_handler(ngx_http_request_t *r, ngx_str_t *file_name, \
 		goto done;
 	}
 
-#define START 	"start"
+#define START 	"rbegin"
 	if(ngx_http_arg(r, (u_char *)START, sizeof(START) - 1, &value \
 				) == NGX_OK){
 		start = ngx_atoof((u_char *)value.data, value.len);
@@ -36,7 +36,7 @@ pptv_handler(ngx_http_request_t *r, ngx_str_t *file_name, \
 			start = 0;
 		}
 	}
-#define END		"end"
+#define END		"rend"
 	if(ngx_http_arg(r, (u_char *)END, sizeof(END) - 1, &value \
 				) == NGX_OK){
 		end = ngx_atoof((u_char *)value.data, value.len);
